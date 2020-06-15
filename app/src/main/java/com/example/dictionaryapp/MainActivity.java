@@ -2,36 +2,56 @@ package com.example.dictionaryapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    String url;
-    private EditText wordSearch;
-    private TextView showDef;
+
+    private Button Listdata_word,game_check_btn,exit_btn,find_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        showDef =findViewById(R.id.showDef);
-        wordSearch=findViewById(R.id.Wsearch);
-    }
-    private String dictionaryEntries() {
-        final String language = "en-gb";
-        final String word = wordSearch.getText().toString();
-        final String fields = "definitions";
-        final String strictMatch = "false";
-        final String word_id = word.toLowerCase();
-        return "https://od-api.oxforddictionaries.com:443/api/v2/entries/" + language + "/" + word_id + "?" + "fields=" + fields + "&strictMatch=" + strictMatch;
+
+        Listdata_word=findViewById(R.id.worddList_btn);
+        game_check_btn=findViewById(R.id.btn_game_check);
+        find_btn=findViewById(R.id.findBtn);
+        exit_btn=findViewById(R.id.btn_exit);
+
+        // event click
+        find_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(MainActivity.this,Search.class);
+                startActivity(intent);
+            }
+        });
+        Listdata_word.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(MainActivity.this,DataWord.class);
+                startActivity(intent);
+            }
+        });
+        game_check_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(MainActivity.this,Game_Check.class);
+                startActivity(intent);
+            }
+        });
+        exit_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity mainActivity= new MainActivity();
+                mainActivity.onPause();
+            }
+        });
     }
 
-    public void sendRequestOnclick(View v)
-    {
-        DictionaryRequest dR= new DictionaryRequest(this, showDef);
-        url=dictionaryEntries();
-        dR.execute(url);
-    }
 }
