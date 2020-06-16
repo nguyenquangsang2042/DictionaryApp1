@@ -34,4 +34,5 @@ public class Search extends AppCompatActivity {
         url=dictionaryEntries();
         dR.execute(url);
     }
+
 }
