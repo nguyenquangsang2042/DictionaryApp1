@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Search"></activity>
+        <activity android:name=".Item"></activity>
+        <activity android:name=".Search" />
         <activity android:name=".Game_Check" />
         <activity android:name=".DataWord" />
         <activity android:name=".MainActivity">

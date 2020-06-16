@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Search extends AppCompatActivity {
 
@@ -33,6 +34,15 @@ public class Search extends AppCompatActivity {
         DictionaryRequest dR= new DictionaryRequest(this, showDef);
         url=dictionaryEntries();
         dR.execute(url);
+    }
+    public void addRecord(View view)
+    {
+        DBmanager db= new DBmanager(this);
+        String res=db.addRecord(wordSearch.getText().toString(),showDef.getText().toString(),"0");
+        Toast.makeText(this,res,Toast.LENGTH_LONG).show();
+        wordSearch.setText("");
+        showDef.setText("");
+
     }
 
 
