@@ -5,8 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.ListView;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBmanager extends SQLiteOpenHelper{
 
@@ -45,12 +49,5 @@ public class DBmanager extends SQLiteOpenHelper{
             return "success";
 
     }
-    public Cursor viewData()
-    {
-        SQLiteDatabase sqLiteDatabase=this.getReadableDatabase();
-        String qrySelectToView="select * from tb_ListWord";
-        Cursor cursor=sqLiteDatabase.rawQuery(qrySelectToView,null);
 
-        return cursor;
-    }
 }
