@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         game_check_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(MainActivity.this,Game_Check.class);
+                Intent intent= new Intent(MainActivity.this,Game_Activity.class);
                 startActivity(intent);
             }
         });
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 MainActivity mainActivity= new MainActivity();
-                mainActivity.onPause();
+                finish();
             }
         });
     }

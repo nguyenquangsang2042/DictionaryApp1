@@ -12,30 +12,30 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.dictionaryapp.Common.CustomAdapter;
+import com.example.dictionaryapp.Model.Word_Constructor;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class DataWord extends AppCompatActivity {
-  DBmanager dBmanager;
-  ArrayList<String> listItem;
-  ArrayAdapter adapter;
-  ListView listView;
-
+    ListView listView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_word);
-        dBmanager=new DBmanager(this);
-        listItem= new ArrayList<>();
-        listView=findViewById(R.id.listViewWord);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String text=listView.getItemAtPosition(i).toString();
-                Toast.makeText(DataWord.this,""+text,Toast.LENGTH_SHORT).show();
-            }
-        });
+        listView=(ListView)findViewById(R.id.listViewWord);
+        DBmanager dBmanager= new DBmanager(this);
+        List<Word_Constructor> list=dBmanager.getAllWord();
+        if(list.size()>0)
+        {
+            CustomAdapter customAdapter=new CustomAdapter(this,list);
+            listView.setAdapter(customAdapter);
+        }
+
+
     }
 
 

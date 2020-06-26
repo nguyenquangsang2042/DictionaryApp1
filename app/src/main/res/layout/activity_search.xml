@@ -52,6 +52,6 @@
         android:layout_toStartOf="@+id/btnFInd"
         android:layout_toLeftOf="@+id/btnFInd"
         android:text="save"
-        android:onClick="addRecord"/>
+        />
 
 </RelativeLayout>
