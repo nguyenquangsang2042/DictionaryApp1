@@ -36,6 +36,7 @@ public class Search extends AppCompatActivity {
 
                 addRecord(view);
                 showDef.setText("");
+                wordSearch.setText("");
             }
             }
         });
