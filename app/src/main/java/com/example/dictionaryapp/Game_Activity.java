@@ -3,9 +3,11 @@ package com.example.dictionaryapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -18,6 +20,9 @@ public class Game_Activity extends AppCompatActivity {
     TextView textView;
     Button btn_play,btnExit;
     DBmanager dBmanager;
+    RelativeLayout container;
+    AnimationDrawable anim;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,11 @@ public class Game_Activity extends AppCompatActivity {
         textView=findViewById(R.id.txtLevel);
         btn_play=findViewById(R.id.btnPlay);
         btnExit=findViewById(R.id.btnExitGame);
+        container = (RelativeLayout) findViewById(R.id.layoutGame);
+
+        anim = (AnimationDrawable) container.getBackground();
+        anim.setEnterFadeDuration(6000);
+        anim.setExitFadeDuration(2000);
         dBmanager=new DBmanager(this);
         try {
             dBmanager.createDB();
@@ -87,5 +97,18 @@ public class Game_Activity extends AppCompatActivity {
             return Common_Level.MODE.HARD.toString();
 
 
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (anim != null && !anim.isRunning())
+            anim.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (anim != null && anim.isRunning())
+            anim.stop();
     }
 }

@@ -4,18 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Playing">
+    tools:context=".Playing"
+    android:id="@+id/layoutPlaying"
+    android:background="@drawable/animation_gradient">
 
     <LinearLayout
+        android:background="@drawable/border"
+        android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/backgroundQuestion"
         >
 
         <TextView
+            android:paddingRight="10dp"
             android:id="@+id/txtMeanQuestion"
-            android:layout_width="360dp"
-            android:layout_height="200dp"
+            android:layout_width="300dp"
+            android:layout_height="160dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
@@ -25,6 +30,7 @@
             android:text="Mean" />
     </LinearLayout>
     <LinearLayout
+        android:background="@drawable/border"
         android:padding="30dp"
 android:orientation="vertical"
         android:layout_below="@+id/backgroundQuestion"
@@ -35,7 +41,7 @@ android:orientation="vertical"
             android:id="@+id/txtScore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text=""
             android:gravity="center_horizontal"
             android:textSize="30dp"/>
         <ProgressBar
@@ -48,13 +54,14 @@ android:orientation="vertical"
             android:layout_marginBottom="20dp"/>
         <Button
             android:id="@+id/btnA"
-
+            android:background="@drawable/borderbutton"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
         <Button
+            android:background="@drawable/borderbutton"
             android:id="@+id/btnB"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
@@ -62,6 +69,7 @@ android:orientation="vertical"
             android:layout_height="wrap_content"
             />
         <Button
+            android:background="@drawable/borderbutton"
             android:id="@+id/btnC"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
@@ -69,6 +77,7 @@ android:orientation="vertical"
             android:layout_height="wrap_content"
             />
         <Button
+            android:background="@drawable/borderbutton"
             android:id="@+id/btnD"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"

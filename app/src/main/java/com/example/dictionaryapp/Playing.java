@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.dictionaryapp.Model.Word_Constructor;
@@ -29,11 +31,16 @@ public class Playing extends AppCompatActivity implements View.OnClickListener {
     Button btnA,btnB,btnC,btnD;
     String mode="";
     TextView txtScore;
+    RelativeLayout container;
+    AnimationDrawable anim;
+
 
 
     @Override
     protected void onResume() {
         super.onResume();
+        if (anim != null && !anim.isRunning())
+            anim.start();
         word_play=db.getAllWord_Mean(mode);
         totalQuestion=word_play.size();
         progressBar=findViewById(R.id.progressBar);
@@ -59,6 +66,10 @@ public class Playing extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playing);
+        container = (RelativeLayout) findViewById(R.id.layoutPlaying);
+        anim = (AnimationDrawable) container.getBackground();
+        anim.setEnterFadeDuration(6000);
+        anim.setExitFadeDuration(2000);
         Bundle extra=getIntent().getExtras();
         if(extra!=null)
         {
@@ -147,7 +158,12 @@ public class Playing extends AppCompatActivity implements View.OnClickListener {
            startActivity(intent);
         }
     }
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (anim != null && anim.isRunning())
+            anim.stop();
+    }
     @Override
     public void onClick(View view) {
         countDownTimer.cancel();

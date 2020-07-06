@@ -5,31 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DataWord"
+    android:background="@drawable/animation_gradient"
 
     >
 
-    <TextView
-        android:id="@+id/txtList"
-        android:layout_width="239dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:textSize="30dp"
-        android:gravity="center_horizontal"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginRight="84dp"
-        android:text="List words save"
-        android:textColor="#4287f5"
-        android:paddingTop="30dp"/>
+    <RelativeLayout
+        android:layout_margin="10dp"
+        android:background="@drawable/border"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/txtList"
+            android:layout_width="239dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:textSize="30dp"
+            android:gravity="center_horizontal"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="88dp"
+            android:layout_marginLeft="88dp"
+            android:layout_marginEnd="84dp"
+            android:layout_marginRight="84dp"
+            android:text="List words save"
+            android:textColor="#4287f5"
+            android:paddingTop="30dp"/>
 
-    <ListView
-        android:layout_below="@+id/txtList"
-        android:id="@+id/listViewWord"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:padding="50dp" />
+        <ListView
+            android:layout_below="@+id/txtList"
+            android:id="@+id/listViewWord"
+            android:layout_width="409dp"
+            android:layout_height="729dp"
+            android:padding="50dp" />
+    </RelativeLayout>
 </RelativeLayout>

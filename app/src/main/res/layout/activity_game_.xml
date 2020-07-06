@@ -4,59 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Game_Activity">
+    tools:context=".Game_Activity"
+    android:id="@+id/layoutGame"
+    android:background="@drawable/animation_gradient">
 
     <ImageView
+        android:id="@+id/imglogo"
         android:layout_width="350dp"
         android:layout_height="200dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
+        android:background="@drawable/backgroud" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="318dp"
+        android:layout_below="@+id/imglogo"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+
+
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="29dp"
         android:layout_marginRight="29dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/backgroud"
-        android:id="@+id/imglogo"/>
-    <LinearLayout
+        android:background="@drawable/border"
         android:orientation="vertical"
-        android:layout_below="@+id/imglogo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
-        android:padding="50dp"
+        android:padding="50dp">
 
-        >
         <Button
+            android:background="@drawable/borderbutton"
             android:id="@+id/btnPlay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="play"
-            />
+            android:text="play" />
 
         <SeekBar
-            android:max="2"
             android:id="@+id/seekBar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-             />
+            android:max="2" />
+
         <TextView
             android:id="@+id/txtLevel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="EASY"
             android:gravity="center_horizontal"
-            android:textSize="30dp"
-            />
+            android:text="EASY"
+            android:textSize="20dp" />
 
         <Button
+            android:background="@drawable/borderbutton"
             android:id="@+id/btnExitGame"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Exit"
-            />
+            android:text="Exit" />
 
     </LinearLayout>
 
