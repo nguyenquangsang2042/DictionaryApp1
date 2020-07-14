@@ -17,16 +17,20 @@
         android:hint="Write word here" />
 
     <TextView
-        android:background="#ffff"
         android:id="@+id/showDef"
         android:layout_width="315dp"
         android:layout_height="170dp"
         android:layout_below="@+id/Wsearch"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="55dp"
         android:layout_marginRight="55dp"
+        android:background="#ffff"
         android:scrollbars="vertical" />
 
     <Button

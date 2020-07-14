@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -20,6 +21,8 @@ import java.util.List;
 import java.util.Random;
 
 public class Playing extends AppCompatActivity implements View.OnClickListener {
+
+
     final static long Interval=1000;
     final static long timeout=7000;
     CountDownTimer countDownTimer;
@@ -33,8 +36,28 @@ public class Playing extends AppCompatActivity implements View.OnClickListener {
     TextView txtScore;
     RelativeLayout container;
     AnimationDrawable anim;
+    MediaPlayer player;
+    public void play()
+    {
+        if(player==null)
+{
+    player=MediaPlayer.create(this,R.raw.song);
 
-
+}        player.start();
+    }
+    public void stop()
+    {
+        stopMusic();
+    }
+    public void stopMusic()
+    {
+        if(player!=null)
+        {
+            player.release();
+            player=null;
+        }
+       
+    }
 
     @Override
     protected void onResume() {
@@ -75,6 +98,7 @@ public class Playing extends AppCompatActivity implements View.OnClickListener {
         {
             mode=extra.getString("MODE");
         }
+        play();
         db= new DBmanager(this);
         txtQuestion=findViewById(R.id.txtMeanQuestion);
         btnA=findViewById(R.id.btnA);
@@ -151,6 +175,7 @@ public class Playing extends AppCompatActivity implements View.OnClickListener {
         }
         else
         {
+            stop();
             Intent intent= new Intent(Playing.this,Score.class);
             Bundle bundle= new Bundle();
             bundle.putInt("Score",score);
